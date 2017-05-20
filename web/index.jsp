@@ -12,5 +12,7 @@
   </head>
   <body>
   <h3 class="message"><%=HelloWorld.getMessage()%></h3>
+
+  <a href="Servlet">Click here to call the servlet</a>
   </body>
 </html>
