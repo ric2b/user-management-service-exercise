@@ -13,7 +13,7 @@
   <body>
   <h3 class="message"><%=HelloWorld.getMessage()%></h3>
 
-  <a href="Servlet">Click here to call the servlet</a>
-  <a href="createUser">Click see the DB</a>
+  <a href="listClients">List clients</a>
+
   </body>
 </html>

@@ -14,12 +14,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Create user</servlet-name>
-        <servlet-class>CreateUser</servlet-class>
+        <servlet-name>List clients</servlet-name>
+        <servlet-class>ListClients</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Create user</servlet-name>
-        <url-pattern>/createUser</url-pattern>
+        <servlet-name>List clients</servlet-name>
+        <url-pattern>/listClients</url-pattern>
     </servlet-mapping>
 </web-app>
 
