@@ -14,8 +14,8 @@ public class PostgresServlet extends HttpServlet {
 
     // "init" sets up a database connection
     public void init(ServletConfig config) throws ServletException {
-        String loginUser = USER;
-        String loginPassword = PASSWORD;
+        String loginUser = System.getenv("db_user");
+        String loginPassword = System.getenv("db_password");
         String loginUrl = "jdbc:postgresql://localhost:5432/postgres";
 
         // Load the PostgreSQL driver
