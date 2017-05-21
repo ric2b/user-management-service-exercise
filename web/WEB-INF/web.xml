@@ -21,5 +21,14 @@
         <servlet-name>List clients</servlet-name>
         <url-pattern>/listClients</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Search clients</servlet-name>
+        <servlet-class>SearchClients</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search clients</servlet-name>
+        <url-pattern>/searchClients</url-pattern>
+    </servlet-mapping>
 </web-app>
 

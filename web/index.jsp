@@ -15,5 +15,11 @@
 
   <a href="listClients">List clients</a>
 
+  <form action="searchClients">
+    Search by name:<br>
+    <input type="text" name="name"><br>
+    <input type="submit" value="Submit">
+  </form>
+
   </body>
 </html>
