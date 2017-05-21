@@ -8,10 +8,18 @@
         <servlet-name>HelloWorld</servlet-name>
         <servlet-class>Servlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/Servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Create user</servlet-name>
+        <servlet-class>CreateUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Create user</servlet-name>
+        <url-pattern>/createUser</url-pattern>
     </servlet-mapping>
 </web-app>
 
