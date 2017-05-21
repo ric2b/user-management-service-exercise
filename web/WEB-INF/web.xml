@@ -14,6 +14,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Add client</servlet-name>
+        <servlet-class>AddClient</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Add client</servlet-name>
+        <url-pattern>/addClient</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Remove client</servlet-name>
+        <servlet-class>RemoveClient</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Remove client</servlet-name>
+        <url-pattern>/removeClient</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>List clients</servlet-name>
         <servlet-class>ListClients</servlet-class>
     </servlet>
