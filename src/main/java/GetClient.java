@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 
-public class SearchClients extends PostgresServlet {
+public class GetClient extends PostgresServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -16,15 +15,15 @@ public class SearchClients extends PostgresServlet {
         // Output stream to STDOUT
         PrintWriter out = response.getWriter();
 
-        out.println("<HTML><Head><Title>Search clients</Title></Head>");
-        out.println("<Body><H1>Search clients</H1>");
+        out.println("<HTML><Head><Title>Get client</Title></Head>");
+        out.println("<Body><H1>Get client</H1>");
 
         try {
             // Declare our statement
             PreparedStatement statement;
-            statement = DBConnection.prepareStatement("SELECT * from user_info.user_info where LOWER(name) like LOWER(?)");
+            statement = DBConnection.prepareStatement("SELECT * from user_info.user_info where NIF = ?");
             statement.clearParameters();
-            statement.setString(1, "%" + request.getParameter("name") + "%");
+            statement.setInt(1, Integer.parseInt(request.getParameter("NIF")));
 
             // Perform the query and render the results
             renderTable(response.getWriter(), statement.executeQuery());

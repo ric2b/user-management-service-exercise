@@ -15,6 +15,16 @@
 
   <a href="listClients">List clients</a>
 
+  <br>
+
+  <form action="getClient">
+    Get client (NIF):<br>
+    <input type="text" name="NIF"><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <br>
+
   <form action="searchClients">
     Search by name:<br>
     <input type="text" name="name"><br>

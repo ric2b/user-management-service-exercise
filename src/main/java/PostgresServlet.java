@@ -13,8 +13,7 @@ public class PostgresServlet extends HttpServlet {
     Connection DBConnection;
 
     // "init" sets up a database connection
-    public void init(ServletConfig config) throws ServletException
-    {
+    public void init(ServletConfig config) throws ServletException {
         String loginUser = USER;
         String loginPassword = PASSWORD;
         String loginUrl = "jdbc:postgresql://localhost:5432/postgres";
@@ -33,5 +32,37 @@ public class PostgresServlet extends HttpServlet {
         {
             System.err.println("SQLException: " + ex.getMessage());
         }
+    }
+
+    void renderTable(PrintWriter out, ResultSet rs) {
+        // Output stream to STDOUT
+        out.println("<table border>");
+        out.println("<tr>" +
+                "<td>" + "name" + "</td>" +
+                "<td>" + "NIF" + "</td>" +
+                "<td>" + "address" + "</td>" +
+                "<td>" + "phone number" + "</td>" +
+                "</tr>");
+
+        // Iterate through each row of rs
+        try {
+            while (rs.next()) {
+                String m_name = rs.getString("name");
+                String m_NIF = rs.getString("NIF");
+                String m_address = rs.getString("address");
+                String m_phone_number = rs.getString("phone_number");
+                out.println("<tr>" +
+                        "<td>" + m_name + "</td>" +
+                        "<td>" + m_NIF + "</td>" +
+                        "<td>" + m_address + "</td>" +
+                        "<td>" + m_phone_number + "</td>" +
+                        "</tr>");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        out.println("</table></body></html>");
+        out.close();
     }
 }

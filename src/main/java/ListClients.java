@@ -15,42 +15,17 @@ public class ListClients extends PostgresServlet {
         // Output stream to STDOUT
         PrintWriter out = response.getWriter();
 
-        out.println("<HTML><Head><Title>Client info</Title></Head>");
+        out.println("<HTML><Head><Title>List clients</Title></Head>");
         out.println("<Body><H1>List clients</H1>");
 
         try {
             // Declare our statement
             Statement statement = DBConnection.createStatement();
 
-            String query = "SELECT * from user_info.user_info";
-
-            // Perform the query
-            ResultSet rs = statement.executeQuery(query);
-
-            out.println("<table border>");
-            out.println("<tr>" +
-                    "<td>" + "name" + "</td>" +
-                    "<td>" + "NIF" + "</td>" +
-                    "<td>" + "address" + "</td>" +
-                    "<td>" + "phone number" + "</td>" +
-                    "</tr>");
-
-            // Iterate through each row of rs
-            while (rs.next()) {
-                String m_name = rs.getString("name");
-                String m_NIF = rs.getString("NIF");
-                String m_address = rs.getString("address");
-                String m_phone_number = rs.getString("phone_number");
-                out.println("<tr>" +
-                        "<td>" + m_name + "</td>" +
-                        "<td>" + m_NIF + "</td>" +
-                        "<td>" + m_address + "</td>" +
-                        "<td>" + m_phone_number + "</td>" +
-                        "</tr>");
-            }
-
-            out.println("</table></body></html>");
+            // Perform the query and render the results
+            renderTable(response.getWriter(), statement.executeQuery("SELECT * from user_info.user_info"));
             statement.close();
+
         } catch (Exception ex) {
             out.println("<HTML>" +
                     "<Head><Title>" +
