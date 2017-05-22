@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import org.apache.commons.lang.StringEscapeUtils;
 
 
 public class AddClient extends PostgresServlet {
@@ -18,16 +19,16 @@ public class AddClient extends PostgresServlet {
 
         out.println("<HTML><Head><Title>Add client</Title></Head>");
         out.println("<Body><H1>Add client</H1>");
-
         try {
             // Declare our statement
             PreparedStatement statement;
             statement = DBConnection.prepareStatement("INSERT INTO user_info.user_info VALUES (?, ?, ?, ?)");
             statement.clearParameters();
-            statement.setString(1, request.getParameter("name"));
+
+            statement.setString(1, StringEscapeUtils.escapeHtml(request.getParameter("name")));
             statement.setInt(2, Integer.parseInt(request.getParameter("NIF")));
-            statement.setString(3, request.getParameter("address"));
-            statement.setString(4, request.getParameter("phone_number"));
+            statement.setString(3, StringEscapeUtils.escapeHtml(request.getParameter("address")));
+            statement.setString(4, StringEscapeUtils.escapeHtml(request.getParameter("phone_number")));
 
             // Perform the query and render the results
             statement.executeUpdate();
