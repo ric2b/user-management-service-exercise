@@ -3,7 +3,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 
@@ -31,7 +30,7 @@ public class ListClients extends PostgresServlet {
                     "<Head><Title>" +
                     "User info: Error" +
                     "</Title></Head>\n<Body>" +
-                    "<P>SQL error in doGet: " +
+                    "<P>List clients failed: " +
                     ex.getMessage() + "</P></Body></HTML>");
             return;
         }

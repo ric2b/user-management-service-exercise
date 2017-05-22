@@ -35,7 +35,7 @@ public class RemoveClient extends PostgresServlet {
                     "<Head><Title>" +
                     "User info: Error" +
                     "</Title></Head>\n<Body>" +
-                    "<P>SQL error in doGet: " +
+                    "<P>Remove client failed: " +
                     ex.getMessage() + "</P></Body></HTML>");
             return;
         }

@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 
 public class GetClient extends PostgresServlet {
@@ -34,7 +33,7 @@ public class GetClient extends PostgresServlet {
                     "<Head><Title>" +
                     "User info: Error" +
                     "</Title></Head>\n<Body>" +
-                    "<P>SQL error in doGet: " +
+                    "<P>Getting client failed: " +
                     ex.getMessage() + "</P></Body></HTML>");
             return;
         }
